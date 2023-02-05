@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <!-- 로깅 파일 위치 -->
+    <property name="LOG_ROOT" value="./logs"/>
+    <!-- 로깅 파일명 -->
+    <property name="LOG_FILE_NAME" value="hello-logback"/>
+
+    <!-- 콘솔 파일 Appender -->
+
+
+</configuration>
