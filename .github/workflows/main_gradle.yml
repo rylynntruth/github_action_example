@@ -5,11 +5,11 @@
 # This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
-name: Spring Boot & Gradle CI/CD Develop
+name: Spring Boot & Gradle CI/CD Main
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -30,7 +30,7 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
           # uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-          # with:
+        # with:
         # arguments: build
         run : ./gradlew clean build
 
@@ -72,8 +72,8 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: aws deploy create-deployment --application-name ci_cd_develop 
+        run: aws deploy create-deployment --application-name ci_cd_develop
           --deployment-group-name ci_cd_group
           --file-exists-behavior OVERWRITE
-          --s3-location bucket=yogiyoclone,bundleType=zip,key=cicdtest.zip 
+          --s3-location bucket=yogiyoclone,bundleType=zip,key=cicdtest.zip
           --region ap-northeast-2
